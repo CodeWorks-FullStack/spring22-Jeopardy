@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="https://bcw.blob.core.windows.net/public/img/9977764104160066">
+  <link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style/main.css">
+  <link rel="stylesheet" href="assets/style/style.css">
+  <title>Jeopardy</title>
+</head>
+
+<body class="bg-primary">
+  <header>
+    <nav class="navbar navbar-dark navbar-expand bg-primary text-light no-select">
+      <a class="navbar-brand ms-3" href="#">
+        <span class="ms-2 text-warning">Jeopardy</span>
+      </a>
+    </nav>
+  </header>
+  <main>
+    <div class="container-fluid text-light">
+      <div class="row">
+        <div id="playerform" class="col-md-12 d-flex justify-content-center">
+          <div class="w-50 mt-5">
+            <form onsubmit="app.playersController.setOrCreatePlayer()">
+              <div class="mb-3 question-font">
+                <label for="playername" class="form-label">Player Name</label>
+                <div class="d-flex">
+                  <input type="text" class="form-control flex-grow-1 square" name="playername" id="playername"
+                    aria-describedby="player-name" placeholder="Your Name....">
+                  <button class="btn btn-success square">Play!</button>
+                </div>
+                <small id="player-name" class="form-text text-light ">* Please provide your name to
+                  login/register</small>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div id="playerslist" class="col-md-3 d-none">
+          <h3>Players <i class="ms-3 mdi mdi-eye selectable" onclick="app.playersController.toggleComplex()"></i></h3>
+          <div class="player-box scrollable-y border border-light d-flex flex-column justify-content-between">
+            <ol class="px-5 py-3" id="players">
+              <!-- Players go here -->
+            </ol>
+            <div class="p-2 text-end">
+              <button class="btn btn-outline-light">Add Player</button>
+            </div>
+          </div>
+        </div>
+        <div id="playspace" class="d-none col-md-9 d-flex flex-column align-items-center justify-content-center">
+          <div id="question" class="text-center">
+            <!-- TEMPLATE GOES HERE -->
+          </div>
+          <div class="controls w-100 text-center">
+            <div class="d-flex justify-content-around mt-5">
+              <button class="btn btn-lg btn-success" onclick="app.playersController.correct(true)">Correct</button>
+              <button class="btn btn-lg btn-danger" onclick="app.playersController.correct(false)">Incorrect</button>
+            </div>
+            <button class="btn btn-lg btn-warning" onclick="app.questionsController.getQuestion()">NEXT</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="bg-dark text-light">
+    <div class="text-center no-select">
+      <p><small>Made with 💖 by Codeworks</small></p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.23.0/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"
+    integrity="sha256-hw7v8jZF/rFEdx1ZHepT4D73AFTHLu/P9kEyrNesRyc=" crossorigin="anonymous"></script>
+  <script src="app/main.js" type="module"></script>
+</body>
+
+</html>
